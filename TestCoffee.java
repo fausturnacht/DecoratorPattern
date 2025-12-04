@@ -12,11 +12,31 @@ public class TestCoffee{
         System.out.println(coffeeMilk.getDescription());
         printCost(coffeeMilk);
 
-        //With Caramel
+        //Latte With Caramel and Milk
+        Latte coffeeLatte = new Latte();
+
         CaramelSyrup coffeeCaramelSyrup = new CaramelSyrup();
-        coffeeCaramelSyrup.setCoffee(blackCoffee);
+        coffeeCaramelSyrup.setCoffee(coffeeLatte);
+
+        coffeeMilk.setCoffee(coffeeCaramelSyrup);
+
         System.out.println(coffeeCaramelSyrup.getDescription());
         printCost(coffeeCaramelSyrup);
+
+        //Espresso + Addons
+        Espresso espresso = new Espresso();
+
+        Honey coffeeHoney = new Honey();
+        coffeeHoney.setCoffee(espresso);
+
+        Sugar coffeeSugar = new Sugar();
+        coffeeSugar.setCoffee(coffeeHoney);
+
+        WhippedCream coffeeWhippedCream = new WhippedCream();
+        coffeeWhippedCream.setCoffee(coffeeSugar);
+
+        System.out.println(coffeeWhippedCream.getDescription());
+        printCost(coffeeWhippedCream);
     }
 
     public static void printCost(Coffee coffee){
